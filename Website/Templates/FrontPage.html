@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"> <!-- Corrected the attribute value -->
+
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background: linear-gradient(to bottom, #001f3f, #000b1d);
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: url('nightSky.jpg') center center no-repeat;
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            padding: 100px;
+        }
+
+        h1 {
+            font-size: 24px;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .left-column {
+            float: left;
+            width: 48%;
+            margin-right: 2%; /* Adjust the margin for spacing between columns */
+        }
+
+        .right-column {
+            float: left;
+            width: 48%;
+        }
+        .additional-content {
+            padding: 0 200px; /* Add some padding to columns for spacing */
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        #reservation-form input[type="submit"] {
+            background: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .paragraph-with-image {
+            overflow: hidden;
+        }
+
+        .paragraph-with-image img {
+            float: right;
+            margin-left: 15px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+    <title>Starlight Chinese Restaurant</title>
+</head>
+<body>
+
+    {% include 'topnav.html' %}
+    {% include 'header.html' %}
+
+    <div class="container">
+        <div class="left-column">
+            <div class="paragraph_container">
+                <h2>About Us</h2>
+                <div class="text-center mt-2 mb-4 paragraph-with-image">
+                        <p>We are a small family-owned restaurant located at the heart of Airdrie,
+                            and we are dedicated to serving the community of Airdrie with delicious Chinese food.</p>
+                        <img src="Image.jpg" alt="About Us Image">
+                </div>
+
+                <h2>Buffet</h2>
+                <div class="text-center mt-2 mb-4 paragraph-with-image">
+                    <p>With over 20 different dishes, Starlight offers a multitude of options to choose from and provides a mix of Asian and Western dishes.
+                        Combined with a dessert, soup, and vegetable bar, you can be sure that Starlight has everything you need
+                        to have an enjoyable dining experience.</p>
+                    <img src="Image.jpg" alt="Buffet Image">
+                </div>
+            </div>
+        </div>
+
+        <div class="right-column">
+            <div class="additional-content text-center">
+                <h2>Hungry?</h2>
+                <p text-align: justify;>Here is our skipthedishes page</p>
+                <a href="https://www.skipthedishes.com/star-light-chinese-restaurant?&adj_tracker=o6dvmeq&adj_campaign=15293941365&k1111=k1111&gad_source=1&gclid=CjwKCAiA7t6sBhAiEiwAsaieYpPqOj6iIyXTKXaZEnth0Xbrkvzd_yF8MwoThCOx03LRKKNAPAKbnRoCdoYQAvD_BwE&gclsrc=aw.ds">
+                    <button>Click me</button>
+                  </a>
+            </div>
+        </div>
+
+        <div style="clear: both;"></div>
+        
+        <h2>Reservations</h2>
+        <p>Make a reservation:</p>
+        <form action="/reserves/{{reserves['id']}}" method="post">
+            <div class="mb-2">
+                <label for="name">Name:</label> <br>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="mb-2">
+                <label for="Phone">Phone number:</label> <br>
+                <input type="tel" id="phone" name="Phone" required>
+            </div>
+
+            <div class="mb-2">
+                <label for="date">Date:</label> <br>
+                <input type="date" id="date" name="date" required>
+            </div>
+
+            <div class="mb-2">
+                <label for="time">Time:</label> <br>
+                <input type="time" id="time" name="time" required>
+            </div>
+
+            <div class="mb-2">
+                <label for="party-size">Party Size:</label> <br>
+                <input type="number" id="party-size" name="party-size" required>
+            </div>
+
+            <div class="mb-2">
+                <label for="subject">Subject:</label> <br>
+                <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+            </div>
+
+            <div>
+                <input type="submit" value="Submit Reservation">
+            </div>
+
+        </form>
+    </div>
+</body>
+</html>
